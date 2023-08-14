@@ -1,6 +1,3 @@
-const formaDePagamento = [debito, credito, dinheiro];
-
-
 
 class CaixaDaLanchonete {
 
@@ -35,9 +32,26 @@ class CaixaDaLanchonete {
             }
             total += precos[codigo] * parseInt(quantidade);
 
-            return "";
+            if (metodoDePagamentoDePagamento === "debito") {
+                total = total * 0.95;
+
+            } else if
+                (metodoDePagamentoPagamento === "credito") {
+                total = total * 1.1;
+
+            } else if
+                (metodoDePagamento === "dinheiro") {
+                total;
+
+            } else {
+                return "Forma de pagamento inválida!";
+            }
+
+            return `R$ ${total.toFixed(2).replace('.', ',')}`;
         }
 
     }
+
+}
 
 export { CaixaDaLanchonete };
