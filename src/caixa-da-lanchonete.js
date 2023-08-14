@@ -20,10 +20,24 @@ class CaixaDaLanchonete {
 
         let total = 0;
 
+        for (const itemCaixa of itens) {
+            const [codigo, quantidade] = itemCaixa.split(',');
 
-        return "";
+            if (!cardapio[codigo]) {
+                return "Item inválido!";
+            }
+
+            if (itensComprados.includes(codigo)) {
+                const itensCompradosValidos = itensComprados.filter(item => itens.inclubes(`${item},1`));
+                if (!itensCompradosValidos.length) {
+                    return "Item extra não pode ser pedido sem o principal";
+                }
+            }
+            total += precos[codigo] * parseInt(quantidade);
+
+            return "";
+        }
+
     }
-
-}
 
 export { CaixaDaLanchonete };
